@@ -8,8 +8,9 @@ ADD         bin /tmp/bin
 RUN         chmod +x /tmp/bin/*
 
 # Define the environmental variables for the scripts
-ENV         SOCORRO_SYMBOL_UPLOAD_TOKEN_FILE ./socorro_token
-RUN         touch socorro_token
+COPY        socorro_token   /tmp/
+ENV         ARTIFACT_TASKID hPJSOfAmSt6F6xJDKU7exg 
+ENV         SOCORRO_SYMBOL_UPLOAD_TOKEN_FILE /tmp/socorro_token
 
 # Install dependencies
 RUN         apt-get update
