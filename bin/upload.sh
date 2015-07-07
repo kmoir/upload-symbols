@@ -3,6 +3,12 @@
 CRASH_SYMBOL_ZIP=crashreporter-symbols.zip
 UPLOAD_SCRIPT=upload_symbols.py
 
+# Check that we have a taskid to checkout
+if [ -z ${ARTIFACT_TASKID} ]; then
+    echo "Please set ARTIFACT_TASKID. Exiting"
+    exit 0
+fi
+
 # grab the symbols from an arbitrary task
 curl -o ${CRASH_SYMBOL_ZIP} https://queue.taskcluster.net/v1/task/${ARTIFACT_TASKID}/artifacts/public/build/target.crashreporter-symbols.zip
 
