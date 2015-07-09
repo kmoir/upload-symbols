@@ -10,10 +10,11 @@ RUN         chmod +x /tmp/bin/*
 # Define the environmental variables for the scripts
 COPY        socorro_token   /tmp/
 ENV         SOCORRO_SYMBOL_UPLOAD_TOKEN_FILE /tmp/socorro_token
+ENV         SCRIPT_PATH toolkit/crashreporter/tools/upload_symbols.py 
 
-# Install dependencies
+# Install dependencies for the script
 RUN         apt-get update
-RUN         apt-get install -y python python-pip curl
+RUN         apt-get install -y python python-pip wget
 RUN         pip install redo requests
 
 # Default command
