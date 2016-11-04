@@ -12,7 +12,7 @@ if [ -z ${ARTIFACT_TASKID} ]; then
 fi
 
 # grab the symbols from an arbitrary task
-symbol_url=https://queue.taskcluster.net/v1/task/${ARTIFACT_TASKID}/artifacts/public/build/target.crashreporter-symbols.zip
+symbol_url=https://queue.taskcluster.net/v1/task/${ARTIFACT_TASKID}/artifacts/public/build/target.crashreporter-symbols-full.zip
 wget ${symbol_url}
 
 # run
